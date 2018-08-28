@@ -27,15 +27,21 @@ describe('App', () => {
 
 describe('Search', () => {
 
+  const props = {
+    value: '',
+    onChange: () => { return; },
+    onSubmit: () => { return; },
+  };
+
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Search>Search</Search>, div);
+    ReactDOM.render(<Search { ...props } >Search</Search>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   test('has a valid snapshot', () => {
     const component = renderer.create(
-      <Search>Search</Search>
+      <Search { ...props } >Search</Search>
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -44,16 +50,19 @@ describe('Search', () => {
 });
 
 describe('Button', () => {
+  const props = {
+    onClick: () => { return; },
+  };
 
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Button>Give Me More</Button>, div);
+    ReactDOM.render(<Button { ...props } >Give Me More</Button>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
   test('has a valid snapshot', () => {
     const component = renderer.create(
-      <Button>Give Me More</Button>
+      <Button { ...props } >Give Me More</Button>
     );
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
@@ -66,6 +75,9 @@ describe('Table', () => {
       { title: '1', author: '1', num_comments: 1, points: 2, objectID: 'y' },
       { title: '2', author: '2', num_comments: 1, points: 2, objectID: 'z' },
     ],
+    sortKey: 'TITLE',
+    isSortReverse: false,
+    onDismiss: () => { return; },
   };
 
   it('renders without crashing', () => {
