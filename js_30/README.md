@@ -3,4 +3,4 @@
 ☕📅 30 days of small Javascript projects ☕📅
 
 ---
-[BACK](./README.md)
+[BACK](../README.md)
