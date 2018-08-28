@@ -3,4 +3,4 @@
 📟💻💾 A simple hacker news clone built with React 📟💻💾
 
 ---
-[BACK](README.md)
+[BACK](./README.md)
