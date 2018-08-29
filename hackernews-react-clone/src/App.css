@@ -52,3 +52,13 @@
   border-radius: 0;
   border-bottom: 1px solid #38BB6C;
 }
+
+.large-column {
+  width: 40%;
+}
+.mid-column {
+  width: 30%;
+}
+.small-column {
+  width: 10%;
+}
