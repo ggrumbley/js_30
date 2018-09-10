@@ -1,5 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled, { createGlobalStyle } from 'styled-components';
+
+
+const GlobalStyle = createGlobalStyle`
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    font: 20px sans-serif;
+    background: #333;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const Widget = styled.div`
+  text-align: center;
+`;
+
+const StyledCounter = styled.div`
+  background: blueviolet;
+  text-align: center;
+  padding: .1em;
+`;
+
+const Button = styled.button`
+  margin: .2em;
+  padding: 1em;
+  font-size: 120%;
+  min-width: 3em;
+  cursor: pointer;
+`;
 
 class Counter extends Component {
   increment = () => {
@@ -12,14 +47,15 @@ class Counter extends Component {
 
   render() {
     return (
-      <div className='widget'>
+      <Widget>
         <h2>Counter</h2>
-        <div className='counter'>
+        <StyledCounter>
           <h1>{this.props.count}</h1>
-          <button onClick={this.decrement}>-</button>
-          <button onClick={this.increment}>+</button>
-        </div>
-      </div>
+          <Button onClick={this.decrement}>-</Button>
+          <Button onClick={this.increment}>+</Button>
+        </StyledCounter>
+        <GlobalStyle />
+      </Widget>
     );
   }
 }
