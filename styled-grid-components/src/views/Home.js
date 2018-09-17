@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import { yellow, black } from '../globalStyle';
-
-const Heading = styled.p`
-  font-size: 50px;
-  border-bottom: 10px solid ${yellow};
-  color: ${black};
-`;
+import { Heading } from '../components/Heading';
 
 class Home extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Heading>Styled Grid Components</Heading>
+        <ul>
+          <li>
+            <Link to="/base-grid">Base Grid</Link>
+          </li>
+        </ul>
       </div>
     );
   }
