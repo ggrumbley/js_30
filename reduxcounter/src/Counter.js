@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled, { createGlobalStyle } from 'styled-components';
 
-
 const GlobalStyle = createGlobalStyle`
   html,
   body {
@@ -25,11 +24,11 @@ const Widget = styled.div`
 const StyledCounter = styled.div`
   background: blueviolet;
   text-align: center;
-  padding: .1em;
+  padding: 0.1em;
 `;
 
 const Button = styled.button`
-  margin: .2em;
+  margin: 0.2em;
   padding: 1em;
   font-size: 120%;
   min-width: 3em;
@@ -39,11 +38,11 @@ const Button = styled.button`
 class Counter extends Component {
   increment = () => {
     this.props.dispatch({ type: 'INCREMENT' });
-  }
+  };
 
   decrement = () => {
     this.props.dispatch({ type: 'DECREMENT' });
-  }
+  };
 
   render() {
     return (
@@ -60,7 +59,6 @@ class Counter extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ count: state.count });
-
+const mapStateToProps = state => ({ count: state.count });
 
 export default connect(mapStateToProps)(Counter);
