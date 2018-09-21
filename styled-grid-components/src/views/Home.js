@@ -23,6 +23,9 @@ class Home extends Component {
           <Item>
             <Link to="/album-layout">Album Layout</Link>
           </Item>
+          <Item>
+            <Link to="/Gallery">Image Gallery</Link>
+          </Item>
         </Container>
       </div>
     );
