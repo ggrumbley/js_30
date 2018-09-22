@@ -26,6 +26,9 @@ class Home extends Component {
           <Item>
             <Link to="/Gallery">Image Gallery</Link>
           </Item>
+          <Item>
+            <Link to="/codepen">Codepen Layout</Link>
+          </Item>
         </Container>
       </div>
     );

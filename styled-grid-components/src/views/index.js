@@ -5,6 +5,7 @@ import Home from './Home';
 import Base from './Base';
 import AlbumLayout from './AlbumLayout';
 import Gallery from './Gallery';
+import Codepen from './CodePen';
 
 const App = () => (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const App = () => (
       <Route path="/base-grid" exact component={Base} />
       <Route path="/album-layout" exact component={AlbumLayout} />
       <Route path="/gallery" exact component={Gallery} />
+      <Route path="/codepen" exact component={Codepen} />
     </Switch>
   </BrowserRouter>
 );
