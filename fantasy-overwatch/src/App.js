@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import SampleComponent from './SampleComponent';
+import { Header, Container } from 'semantic-ui-react';
+
+import './App.css';
+import NavBar from './components/NavBar';
+import UnitInfo from './views/UnitInfo';
+import Heroes from './views/Heroes';
+import Players from './views/Players';
+import UnitOrganization from './views/UnitOrganization';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Fantasy Overwatch</h2>
-        </header>
-        <SampleComponent />
+        <div className="App-header">
+          <Header inverted as="h1">
+            Fantasy Overwatch
+          </Header>
+        </div>
+        <BrowserRouter>
+          <Container>
+            <NavBar />
+            <Route path="/" exact component={UnitInfo} />
+            <Route path="/players" exact component={Players} />
+            <Route path="/heroes" exact component={Heroes} />
+            <Route path="/unit-organization" exact component={UnitOrganization} />
+          </Container>
+        </BrowserRouter>
       </div>
     );
   }

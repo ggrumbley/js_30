@@ -1,5 +1,5 @@
 const initialState = {
-  data: 142
+  data: 42
 };
 
 export default function testReducer(state = initialState, action) {
