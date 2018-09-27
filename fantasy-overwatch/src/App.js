@@ -8,7 +8,7 @@ import Players from './views/Players';
 import NavBar from './components/NavBar';
 import TeamInfo from './views/TeamInfo';
 import Heroes from './views/Heroes';
-import UnitOrganization from './views/UnitOrganization';
+import TeamOrganization from './views/TeamOrganization';
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
               <Route path="/" exact component={TeamInfo} />
               <Route path="/players" exact component={Players} />
               <Route path="/heroes" exact component={Heroes} />
-              <Route path="/unit-organization" exact component={UnitOrganization} />
+              <Route path="/team-organization" exact component={TeamOrganization} />
             </Switch>
           </Container>
         </div>

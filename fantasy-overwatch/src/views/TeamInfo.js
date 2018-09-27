@@ -21,14 +21,14 @@ const TeamInfo = () => (
     <Form size="large">
       <Form.Field name="name" width={6}>
         <label>Team Name</label>
-        <input placeholder="Name" id="name-field" value="Murder Inc." />
+        <input placeholder="Name" id="name-field" defaultValue="Murder Inc." />
       </Form.Field>
       <Form.Field name="affiliation" width={6}>
         <label>Affiliation</label>
         <Dropdown
           selection
           options={TEAMS}
-          value="shd"
+          defaultValue="shd"
         />
       </Form.Field>
     </Form>
