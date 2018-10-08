@@ -1,20 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const GameWindow = styled.div`
-  grid-area: Game;
-  background-color: peachpuff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Game = () => (
-  <GameWindow>
-    Game Window
-  </GameWindow>
-
-);
-
+const Game = () => <div className="game-window">Game Window</div>;
 
 export default Game;

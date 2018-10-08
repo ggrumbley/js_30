@@ -1,20 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const PlayerWindow = styled.div`
-  grid-area: Player;
-  background-color: green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Player = () => (
-  <PlayerWindow>
-    Player Window
-  </PlayerWindow>
-
-);
-
+const Player = () => <div className="player-window">Player Window</div>;
 
 export default Player;
