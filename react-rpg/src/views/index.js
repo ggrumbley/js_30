@@ -6,6 +6,8 @@ import MenuBar from '../components/MenuBar';
 import Movement from '../components/Movement';
 import Player from '../components/Player';
 
+import store from '../store';
+
 import '../styles/main.scss';
 
 class App extends Component {
