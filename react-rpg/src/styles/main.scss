@@ -49,6 +49,24 @@ h6 {
   grid-area: Player;
   background-color: green;
   display: flex;
+  padding: 20px;
+
+  dl {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    overflow: visible;
+
+    dt {
+      flex: 0 0 30%;
+    }
+    dd {
+      flex: 0 0 70%;
+      margin-left: auto;
+      text-align: left;
+    }
+  }
 }
 
 .movement-window {
