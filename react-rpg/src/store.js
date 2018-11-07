@@ -61,38 +61,7 @@ const takeDamage = amount => ({
 //
 // Reducers
 //
-
-const xpReducer = (state = 0, action) => {
-  switch (action.type) {
-    case Actions.GAIN_XP:
-      return state + action.payload;
-    default:
-      return state;
-  }
-};
-
-const levelReducer = (state = 1, action) => {
-  switch (action.type) {
-    case Actions.LEVEL_UP:
-      return state + 1;
-    default:
-      return state;
-  }
-};
-
-const positionReducer = (state = initialState.position, action) => {
-  switch (action.type) {
-    case Actions.MOVE:
-      const { x, y } = action.payload;
-      action.payload.x += state.x;
-      action.payload.y += state.y;
-      return { x, y };
-    default:
-      return state;
-  }
-};
-
-const statsReducer = (state = initialState.stats, action) => {
+const statsReducer = (state = initialState.hero.stats, action) => {
   let { health, maxHealth } = state;
 
   switch (action.type) {
@@ -107,7 +76,7 @@ const statsReducer = (state = initialState.stats, action) => {
   }
 };
 
-const inventoryReducer = (state = initialState.inventory, action) => {
+const inventoryReducer = (state = initialState.hero.inventory, action) => {
   let { potions } = state;
 
   switch (action.type) {
@@ -119,12 +88,46 @@ const inventoryReducer = (state = initialState.inventory, action) => {
   }
 };
 
+const heroReducer = (state = initialState.hero, action) => {
+  const { stats, inventory } = state;
+
+  switch (action.type) {
+    case Actions.GAIN_XP:
+      const xp = state.xp + action.payload;
+      return { ...state, xp };
+
+    case Actions.LEVEL_UP:
+      const level = state.level + 1;
+      return { ...state, level };
+
+    case Actions.MOVE:
+      let { position: { x, y } } = state;
+      x += action.payload.x;
+      y += action.payload.y;
+      return { ...state, position: { x, y } };
+
+    case Actions.DRINK_POTION:
+      return {
+        ...state,
+        stats: statsReducer(stats, action),
+        inventory: inventoryReducer(inventory, action)
+      };
+    case Actions.TAKE_DAMAGE:
+      return {
+        ...state,
+        stats: statsReducer(stats, action)
+      };
+
+    default:
+      return state;
+  }
+};
+
+const monsterReducer = (state = initialState.monster, action) => state;
+
 const reducer = combineReducers({
-  xp: xpReducer,
-  level: levelReducer,
-  position: positionReducer,
-  stats: statsReducer,
-  inventory: inventoryReducer
+  hero: heroReducer,
+  monster: monsterReducer
 });
 
 const store = createStore(reducer);
