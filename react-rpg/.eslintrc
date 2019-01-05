@@ -17,6 +17,9 @@
     "jquery": true,
     "jest": true
   },
+  "plugins": [
+    "react-hooks"
+  ],
   "rules": {
     "no-debugger": 0,
     "no-alert": 0,
@@ -109,6 +112,7 @@
           "invalidHref"
         ]
       }
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error"
   }
 }
