@@ -13,29 +13,40 @@ code {
     monospace;
 }
 
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .grid-container {
   display: grid;
+  min-height: calc(100vh - 100px);
+
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "Combat Character" "Inventory Notes";
 }
 
 .Combat {
+  @extend %flex-center;
   grid-area: Combat;
   background-color: lightgreen;
 }
 
 .Character {
+  @extend %flex-center;
   grid-area: Character;
   background-color: plum;
 }
 
 .Inventory {
+  @extend %flex-center;
   grid-area: Inventory;
   background-color: lavender;
 }
 
 .Notes {
+  @extend %flex-center;
   grid-area: Notes;
   background-color: aquamarine
 }
