@@ -1,3 +1,8 @@
+@charset "utf-8";
+
+@import "~@mdi/font/css/materialdesignicons.css";
+@import "~bulma/bulma";
+
 body {
   margin: 0;
   padding: 0;
@@ -42,6 +47,12 @@ code {
   @extend %flex-center;
   grid-area: Inventory;
   background-color: lavender;
+}
+
+.Spells {
+  @extend %flex-center;
+  grid-area: Spells;
+  background-color: crimson;
 }
 
 .Notes {
