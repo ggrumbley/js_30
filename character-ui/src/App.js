@@ -4,7 +4,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>This is an app</h1>
+        <div className="tab-bar">
+          <h1>This is an app</h1>
+        </div>
         <div className="grid-container">
           <section class="Combat">Combat Section</section>
           <section class="Character">Character Section</section>
