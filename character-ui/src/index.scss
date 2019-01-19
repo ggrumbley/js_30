@@ -25,10 +25,11 @@ code {
 }
 .grid-container {
   display: grid;
+  width: 100vw;
   min-height: calc(100vh - 100px);
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "Combat Character" "Inventory Notes";
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "Combat Character" "Inventory Notes" "Spells .";
 }
 
 .Combat {
@@ -67,9 +68,10 @@ code {
 
 @media (max-width: 900px) and (min-width: 380px) {
   .grid-container {
-    grid-template-columns: 100vw 100vw 100vw 100vw;
+    grid-template-columns: 100vw 100vw 100vw 100vw 100vw;
     grid-template-rows: 1fr;
-    grid-template-areas: "Combat Character Inventory Notes";
+    grid-template-areas: "Combat Character Inventory Spells Notes";
+    overflow-x: scroll;
     // min-height: 290px;
     // max-height: 390px;
   }
@@ -78,8 +80,8 @@ code {
 @media (max-width: 380px) {
   .grid-container {
     grid-template-columns: 100vw;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "Combat" "Character" "Inventory" "Notes";
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "Combat" "Character" "Inventory" "Spells" "Notes";
     min-height: 2400px;
     // max-height: 390px;
   }
