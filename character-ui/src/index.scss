@@ -29,7 +29,7 @@ code {
   min-height: calc(100vh - 100px);
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas: "Combat Character" "Inventory Notes" "Spells .";
+  grid-template-areas: "Combat Character" "Inventory Spells" "Notes .";
 }
 
 .Combat {
@@ -72,17 +72,16 @@ code {
     grid-template-rows: 1fr;
     grid-template-areas: "Combat Character Inventory Spells Notes";
     overflow-x: scroll;
-    // min-height: 290px;
-    // max-height: 390px;
   }
 }
 
 @media (max-width: 380px) {
   .grid-container {
     grid-template-columns: 100vw;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 500px 500px 500px 500px 500px;
     grid-template-areas: "Combat" "Character" "Inventory" "Spells" "Notes";
-    min-height: 2400px;
-    // max-height: 390px;
+    overflow-y: scroll;
+    height: calc(100vh - 40px);
   }
+
 }

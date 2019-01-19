@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 
+import Tabs from './Components/Tabs';
+
 class App extends Component {
   render() {
     return (
       <div>
-        <div className="tabs is-centered">
-          <ul>
-            <li className="is-active"><a className="mdi mdi-sword-cross" /></li>
-            <li><a className="mdi mdi-shield-account" /></li>
-            <li><a className="mdi mdi-treasure-chest" /></li>
-            <li><a className="mdi mdi-book-open" /></li>
-            <li><a className="mdi mdi-text" /></li>
-          </ul>
-        </div>
+        <Tabs />
         <div className="grid-container">
-          <section class="Combat">Combat Section</section>
-          <section class="Character">Character Section</section>
-          <section class="Inventory">Inventory Section</section>
-          <section class="Spells">Spells Section</section>
-          <section class="Notes">Notes Section</section>
+          <section className="Combat">Combat Section</section>
+          <section className="Character">Character Section</section>
+          <section className="Inventory">Inventory Section</section>
+          <section className="Spells">Spells Section</section>
+          <section className="Notes">Notes Section</section>
         </div>
       </div>
     );
