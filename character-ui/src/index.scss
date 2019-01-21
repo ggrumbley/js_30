@@ -33,31 +33,26 @@ code {
 }
 
 .Combat {
-  @extend %flex-center;
   grid-area: Combat;
   background-color: lightgreen;
 }
 
 .Character {
-  @extend %flex-center;
   grid-area: Character;
   background-color: plum;
 }
 
 .Inventory {
-  @extend %flex-center;
   grid-area: Inventory;
   background-color: lavender;
 }
 
 .Spells {
-  @extend %flex-center;
   grid-area: Spells;
   background-color: crimson;
 }
 
 .Notes {
-  @extend %flex-center;
   grid-area: Notes;
   background-color: aquamarine
 }
