@@ -20,7 +20,7 @@ class SignUpFormBase extends React.Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  onSubmit = (e) => {
+  onSubmit = (event) => {
     const { username, email, passwordOne } = this.state;
     const { firebase, history } = this.props;
 
@@ -31,11 +31,11 @@ class SignUpFormBase extends React.Component {
         history.push(ROUTES.HOME);
       })
       .catch((error) => { this.setState({ error }); });
-    e.preventDefault();
+    event.preventDefault();
   };
 
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  onChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
