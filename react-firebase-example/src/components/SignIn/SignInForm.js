@@ -65,7 +65,6 @@ class SignInFormBase extends React.Component {
       </form>
     );
   }
-
 }
 
 const SignInForm = compose(
