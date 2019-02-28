@@ -1,6 +1,7 @@
-import React from 'react';
-const SignUp = () => ( <div>
-    <h1>SignUp</h1>
-  </div>
-);
-export default SignUp;
+import SignUpForm from './SignUpForm';
+import SignUpLink from './SignUpLink';
+import SignUpPage from './SignUpPage';
+
+export default SignUpPage;
+
+export { SignUpForm, SignUpLink };
