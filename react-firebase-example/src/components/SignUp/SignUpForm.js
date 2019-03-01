@@ -21,12 +21,12 @@ class SignUpFormBase extends React.Component {
   }
 
   onSubmit = (event) => {
-    const { username, email, passwordOne } = this.state;
+    const { username, email, passwordOne } = this.state; // eslint-disable-line
     const { firebase, history } = this.props;
 
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then((authUser) => {
+      .then((authUser) => { // eslint-disable-line
         this.setState({ ...INITIAL_STATE });
         history.push(ROUTES.HOME);
       })
