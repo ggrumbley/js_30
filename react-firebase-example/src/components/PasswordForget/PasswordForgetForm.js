@@ -51,7 +51,6 @@ class PasswordForgetFormBase extends Component {
       </form>
     );
   }
-
 }
 
 const PasswordForgetForm = withFirebase(PasswordForgetFormBase);
