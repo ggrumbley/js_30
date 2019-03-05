@@ -26,7 +26,15 @@ class SignUpFormBase extends React.Component {
 
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then((authUser) => { // eslint-disable-line
+      .then(authUser => (
+        firebase
+          .user(authUser.user.uid)
+          .set({
+            username,
+            email,
+          })
+      ))
+      .then(() => {
         this.setState({ ...INITIAL_STATE });
         history.push(ROUTES.HOME);
       })
