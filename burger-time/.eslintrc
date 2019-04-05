@@ -12,6 +12,7 @@
   "rules": {
     "no-confusing-arrow": ["error", {"allowParens": true}],
     "react/prop-types": 0,
+    "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
     "react/prefer-stateless-function": ["off", { "ignorePureComponents": true }],
     "react/jsx-filename-extension": [
