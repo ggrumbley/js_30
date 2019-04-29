@@ -5,11 +5,11 @@ import NavItem from './NavItem';
 
 const NavigationBar = () => (
   <ul className={styles.NavigationBar}>
-    <NavItem link="/" active>
+    <NavItem link="/" exact>
       Burger Builder
     </NavItem>
-    <NavItem link="/">
-      Checkout
+    <NavItem link="/orders">
+      Orders
     </NavItem>
   </ul>
 );

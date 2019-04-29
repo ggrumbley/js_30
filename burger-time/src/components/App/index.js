@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import BurgerBuilder from '../../containers/BurgerBuilder';
 import Layout from '../Layout';
+import BurgerBuilder from '../../containers/BurgerBuilder';
+import Checkout from '../../containers/Checkout';
+import Orders from '../../containers/Orders';
 
-class App extends Component {
-  render() {
-    return (
-      <Layout>
-        <BurgerBuilder />
-      </Layout>
-    );
-  }
-}
+const App = () => (
+  <Layout>
+    <Switch>
+      <Route path="/" exact component={BurgerBuilder} />
+      <Route path="/orders" component={Orders} />
+      <Route path="/checkout" component={Checkout} />
+    </Switch>
+  </Layout>
+);
 
 export default App;
