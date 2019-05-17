@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 import Button from '../Button';
 import Spinner from '../Spinner';
+import Input from '../Input';
+
 import api from '../../api';
+import { ORDER_FORM } from './config';
 import styles from './ContactData.module.css';
 
 class ContactData extends Component {
@@ -10,33 +13,29 @@ class ContactData extends Component {
     super(props);
 
     this.state = {
-      // name: '',
-      // email: '',
-      // address: {
-      //   street: '',
-      //   postalCode: '',
-      // },
+      orderForm: ORDER_FORM,
+      formIsValid: false,
       loading: false,
     };
   }
 
   orderHandler = (event) => {
     const { ingredients, history, price } = this.props;
+    const { orderForm } = this.state;
+    console.log('PING');
+
     event.preventDefault();
     this.setState({ loading: true });
+
+    const orderData = Object.entries(orderForm).reduce(
+      (result, [formEl, formVal]) => ({ ...result, ...{ [formEl]: formVal.value } }),
+      {},
+    );
+
     const order = {
       ingredients,
       price,
-      customer: {
-        name: 'Gary G',
-        address: {
-          street: 'Teststreet 1',
-          zipCode: '92116',
-          country: 'USA',
-        },
-        email: 'test@test.com',
-      },
-      deliveryMethod: 'fastest',
+      orderData,
     };
 
     api
@@ -52,26 +51,91 @@ class ContactData extends Component {
       });
   };
 
+  checkValidity = (value, rules) => {
+    let isValid = true;
+    if (!rules) {
+      return true;
+    }
+
+    if (rules.required) {
+      isValid = value.trim() !== '' && isValid;
+    }
+
+    if (rules.minLength) {
+      isValid = value.length >= rules.minLength && isValid;
+    }
+
+    if (rules.maxLength) {
+      isValid = value.length <= rules.maxLength && isValid;
+    }
+
+    if (rules.isEmail) {
+      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      isValid = pattern.test(value) && isValid;
+    }
+
+    if (rules.isNumeric) {
+      const pattern = /^\d+$/;
+      isValid = pattern.test(value) && isValid;
+    }
+
+    return isValid;
+  };
+
+  inputChangedHandler = (event, inputID) => {
+    const { orderForm } = this.state;
+
+    const updatedOrderForm = {
+      ...orderForm,
+    };
+
+    const updatedFormElement = {
+      ...updatedOrderForm[inputID],
+    };
+
+    updatedFormElement.value = event.target.value;
+    updatedFormElement.valid = this.checkValidity(
+      updatedFormElement.value, updatedFormElement.validation,
+    );
+    updatedFormElement.touched = true;
+    updatedOrderForm[inputID] = updatedFormElement;
+
+    let formIsValid = true;
+
+    Object.values(updatedOrderForm).forEach((element) => {
+      formIsValid = element.valid && formIsValid;
+    });
+
+    this.setState({ orderForm: updatedOrderForm, formIsValid });
+  };
+
   render() {
-    const { loading } = this.state;
+    const { formIsValid, loading, orderForm } = this.state;
 
     return (
       <div className={styles.ContactData}>
         <h4>Enter your Contact Data</h4>
-        { loading
-          ? <Spinner />
-          : (
-            <form>
-              <input className={styles.Input} type="text" name="name" placeholder="Your Name" />
-              <input className={styles.Input} type="email" name="email" placeholder="Your Mail" />
-              <input className={styles.Input} type="text" name="street" placeholder="Street" />
-              <input className={styles.Input} type="text" name="postal" placeholder="Postal Code" />
-              <Button btnType="Success" clicked={this.orderHandler}>
-                ORDER
-              </Button>
-            </form>
-          )
-        }
+        {loading ? (
+          <Spinner />
+        ) : (
+          <form onSubmit={this.orderHandler}>
+            {Object.entries(orderForm).map(([id, config]) => (
+              <Input
+                key={id}
+                elementType={config.elementType}
+                elementConfig={config.elementConfig}
+                value={config.value}
+                invalid={!config.valid}
+                shouldValidate={config.validation}
+                touched={config.touched}
+                changed={event => this.inputChangedHandler(event, id)}
+              />
+            ))}
+            <Button btnType="Success" disabled={!formIsValid}>
+              ORDER
+            </Button>
+          </form>
+        )}
       </div>
     );
   }
