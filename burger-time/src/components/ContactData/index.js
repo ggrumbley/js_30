@@ -5,7 +5,7 @@ import Spinner from '../Spinner';
 import Input from '../Input';
 
 import api from '../../api';
-import { ORDER_FORM } from './config';
+import { ORDER_FORM } from '../../constants';
 import styles from './ContactData.module.css';
 
 class ContactData extends Component {
@@ -22,7 +22,6 @@ class ContactData extends Component {
   orderHandler = (event) => {
     const { ingredients, history, price } = this.props;
     const { orderForm } = this.state;
-    console.log('PING');
 
     event.preventDefault();
     this.setState({ loading: true });
@@ -131,7 +130,7 @@ class ContactData extends Component {
                 changed={event => this.inputChangedHandler(event, id)}
               />
             ))}
-            <Button btnType="Success" disabled={!formIsValid}>
+            <Button btnType="Success" disabled={!formIsValid} type="submit">
               ORDER
             </Button>
           </form>
