@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import CounterControl from '../../components/CounterControl';
@@ -21,7 +21,7 @@ const Counter = ({
     <CounterControl label="Add 5" clicked={() => onAddCounter(5)} />
     <CounterControl label="Subtract 5" clicked={() => onSubtractCounter(5)} />
     <hr />
-    <button onClick={onStoreResult}>Store Result</button>
+    <button type="button" onClick={onStoreResult}>Store Result</button>
     <ul>
       {results.map(result => (
         <li key={result.id} onClick={()=> onDeleteResult(result.id)}>
@@ -55,7 +55,7 @@ const mapDispatchToProps = dispatch => ({
   onStoreResult: () => dispatch({
     type: 'STORE_RESULT',
   }),
-  onDeleteResult: (payload) => dispatch({
+  onDeleteResult: payload => dispatch({
     type: 'DELETE_RESULT',
     payload,
   }),
