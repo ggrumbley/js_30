@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Counter from '../../containers/Counter';
+import Counter from '../Counter';
 import GlobalStyle from './globalStyle';
 
 const title = 'Redux Counter';
