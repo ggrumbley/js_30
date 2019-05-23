@@ -2,13 +2,13 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
 import GlobalStyle from './globalStyle';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/outrun_logo.svg';
 
 const title = 'React App';
 
 const WelcomeMessage = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
+  /* background-color: #282c34; */
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@ const WelcomeMessage = styled.header`
 
 const Logo = styled.img`
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 20vmin;
 
   @keyframes App-logo-spin {
     from {

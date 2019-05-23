@@ -1,13 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
+import arcade from '../../assets/arcade.jpg';
+
 const GlobalStyle = createGlobalStyle`
   body {
-    color: #222;
-    background: #f4f4f4;
-    font: 400 14px CoreSans, Arial,sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+    background-color: #000000;
+    margin: 0px;
+    background: url(${arcade}) no-repeat center center fixed;
+    background-size: cover;
   }
 
   a {
