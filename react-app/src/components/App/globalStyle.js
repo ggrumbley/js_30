@@ -5,6 +5,9 @@ const GlobalStyle = createGlobalStyle`
     color: #222;
     background: #f4f4f4;
     font: 400 14px CoreSans, Arial,sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
   }
 
   a {
@@ -25,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 5px;
     outline: none;
     margin-right: 10px;
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
   }
 
   *:focus {
