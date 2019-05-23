@@ -8,11 +8,11 @@ describe('App Test Suite', () => {
   let wrapper;
   beforeAll(() => { wrapper = shallow(<App />); });
 
-  it('Should have a welcome message', () => {
-    expect(wrapper.find('App__WelcomeMessage')).toExist();
+  it('Should have a global styled component', () => {
+    expect(wrapper.find('GlobalStyleComponent')).toExist();
   });
 
-  it('Should have a logo', () => {
-    expect(wrapper.find('App__Logo')).toExist();
+  it('Should have a logo component', () => {
+    expect(wrapper.find('Logo')).toExist();
   });
 });
