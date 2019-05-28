@@ -18,7 +18,6 @@ function collectOddValues(arr) {
 
 console.log(collectOddValues([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
-
 function collectOddValuesPure(arr) {
   let newArr = [];
   if (arr.length === 0) return newArr;
