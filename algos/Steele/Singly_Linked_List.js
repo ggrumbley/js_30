@@ -28,7 +28,7 @@ class SinglyLinkedList {
   }
 
   pop() {
-    if(!this.head) return undefined;
+    if(!this.head) return null;
     let current = this.head;
     let newTail = current;
     while(current.next) {
@@ -46,7 +46,7 @@ class SinglyLinkedList {
   }
 
   shift() {
-    if(this.length === 0) return undefined;
+    if(this.length === 0) return null;
     let olHead = this.head;
     this.head = olHead.next;
     this.length--;
@@ -68,7 +68,7 @@ class SinglyLinkedList {
   }
 
   get(index) {
-    if(index < 0 || index >= this.length) return null;
+    if(index < 0 || index >= this.length) return false;
     let counter = 0;
     let current = this.head;
     while(counter !== index) {
@@ -79,13 +79,56 @@ class SinglyLinkedList {
   }
 
   set(index, val) {
-    let _node = this.get(index)
-    if (_node) {
-      _node.val = val;
+    let selectedNode = this.get(index)
+    if (selectedNode) {
+      selectedNode.val = val;
       return true;
     }
 
     return false;
+  }
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unShift(val);
+
+    let newNode = new Node(val);
+    let prevNode = this.get(index - 1);
+    let nextNode = prevNode.next;
+    prevNode.next = newNode;
+    newNode.next = nextNode;
+    this.length++;
+
+    return true;
+  }
+
+  remove(index) {
+    if (index < 0 || index > this.length) return null;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+
+    let prevNode = this.get(index - 1);
+    let remNode = prevNode.next;
+    prevNode.next = remNode.next;
+    this.length--;
+
+    return remNode;
+  }
+
+  reverse() {
+    let node = this.head;
+    let next = null;
+    let prev = null;
+
+    this.head = this.tail;
+    this.tail = node;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
   }
 
   traverse() {
@@ -94,6 +137,16 @@ class SinglyLinkedList {
       console.log(current.val);
       current = current.next;
     }
+  }
+
+  print() {
+    let arr = [];
+    let current = this.head;
+    while(current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    console.log(arr);
   }
 }
 
