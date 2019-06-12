@@ -1,3 +1,13 @@
+export const INITIAL_STATE = {
+  ingredients: {
+    salad: 0,
+    bacon: 0,
+    cheese: 0,
+    meat: 0,
+  },
+  totalPrice: 4,
+};
+
 export const INGREDIENT_PRICES = {
   salad: 0.5,
   cheese: 0.4,
