@@ -3,6 +3,7 @@ import { configure, addParameters } from '@storybook/react';
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import { withA11y } from '@storybook/addon-a11y';
+import '@storybook/addon-console';
 
 // automatically import all files ending in *.stories.js
 configure(require.context('../src', true, /stories\.jsx?$/), module);
