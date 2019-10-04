@@ -33,8 +33,8 @@ const StyledLogo = styled.div`
     font-size: 150px;
     margin-right: -8em;
     position: absolute;
-    text-shadow: 0 0 1px #d100b1, 0 -3px 3px rgba(255, 255, 255, 0.8), 0 3px 3px rgba(0, 0, 0, 0.5), 0 0 15px #d100b1,
-      0 0 45px rgba(209, 0, 177, 0.8);
+    text-shadow: 0 0 1px #d100b1, 0 -3px 3px rgba(255, 255, 255, 0.8), 0 3px 3px rgba(0, 0, 0, 0.5),
+      0 0 15px #d100b1, 0 0 45px rgba(209, 0, 177, 0.8);
     text-align: center;
     text-decoration: underline;
     text-transform: none;

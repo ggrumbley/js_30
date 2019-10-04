@@ -2,8 +2,10 @@
 
 ## Features
 
-- React 16
-- Webpack 4
-- Babel 7
+- React v16.10.2
+- Styled Components v4.4.0
+- Webpack
+- Babel
+- ESLint
+- Jest
 - Hot Module Replacement
-- Styled Components
