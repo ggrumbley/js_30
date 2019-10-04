@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "sideEffects": false,
   "scripts": {
-    "start": "webpack-dev-server --mode development",
-    "build": "webpack --mode production",
+    "build": "webpack --progress --profile --colors",
+    "serve": "webpack-dev-server --mode=development",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage && npx codecov",
@@ -49,7 +50,7 @@
   "bundlesize": [
     {
       "path": "./dist/*.js",
-      "maxSize": "200 kB"
+      "maxSize": "500 kB"
     }
   ]
 }
