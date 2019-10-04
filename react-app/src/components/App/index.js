@@ -1,12 +1,3 @@
-import React from 'react';
-import Logo from '../Logo';
-import GlobalStyle from './GlobalStyle';
-
-const App = () => (
-  <>
-    <Logo />
-    <GlobalStyle />
-  </>
-);
+import App from './App';
 
 export default App;

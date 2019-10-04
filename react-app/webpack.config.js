@@ -23,6 +23,9 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(),
