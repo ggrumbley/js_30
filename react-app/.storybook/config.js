@@ -1,7 +1,5 @@
-import { storiesOf, addDecorator } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { configure, addParameters } from '@storybook/react';
-import "core-js/stable";
-import "regenerator-runtime/runtime";
 import { withA11y } from '@storybook/addon-a11y';
 import '@storybook/addon-console';
 
@@ -9,7 +7,6 @@ import '@storybook/addon-console';
 configure(require.context('../src', true, /stories\.jsx?$/), module);
 
 addDecorator(withA11y);
-
 addParameters({
   options: {
     name: 'New Wave App',
