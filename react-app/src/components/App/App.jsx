@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../Logo';
-import GlobalStyle from './GlobalStyle';
+import { GlobalStyle } from '../shared';
 
 const App = () => (
   <>

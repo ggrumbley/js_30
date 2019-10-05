@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-
+import reset from './reset';
 import arcade from '../../assets/arcade.jpg';
 
 const GlobalStyle = createGlobalStyle`
+  /* ${reset} */
   body {
     background-color: #000000;
     margin: 0px;
