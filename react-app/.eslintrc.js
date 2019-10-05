@@ -13,7 +13,7 @@ module.exports = {
     'commonjs': true,
     'es6': true,
     'jest': true,
-    'node': false,
+    'node': true,
   },
   rules: {
     'arrow-body-style': ['off'],
