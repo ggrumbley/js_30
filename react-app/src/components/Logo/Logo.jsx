@@ -31,7 +31,9 @@ const StyledLogo = styled.div`
     display: block;
     font-family: 'Yellowtail', cursive;
     font-size: 150px;
+    font-weight: 700;
     margin-right: -8em;
+    margin-top: 1em;
     position: absolute;
     text-shadow: 0 0 1px #d100b1, 0 -3px 3px rgba(255, 255, 255, 0.8), 0 3px 3px rgba(0, 0, 0, 0.5),
       0 0 15px #d100b1, 0 0 45px rgba(209, 0, 177, 0.8);
