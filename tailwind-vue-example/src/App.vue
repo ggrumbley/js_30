@@ -3,17 +3,17 @@
     <div class="container">
       <PropertyCard :property="property"/>
     </div>
-    <Workcation />
+    <!-- <Workcation /> -->
   </div>
 </template>
 
 <script>
-import Workcation from './components/Workcation';
+// import Workcation from './components/Workcation';
 import PropertyCard from './components/PropertyCard';
 export default {
   name: 'app',
   components: {
-    Workcation,
+    // Workcation,
     PropertyCard,
   },
     data: () => ({
