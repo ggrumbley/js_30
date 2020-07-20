@@ -1,20 +1,23 @@
 <template>
-  <div id="app">
+  <div id="app" class="antialiased text-gray-900 bg-gray-200 min-h-screen">
+    <Navbar/>
     <div class="container">
+      <Workcation />
       <PropertyCard :property="property"/>
     </div>
-    <!-- <Workcation /> -->
   </div>
 </template>
 
 <script>
-// import Workcation from './components/Workcation';
+import Workcation from './components/Workcation';
 import PropertyCard from './components/PropertyCard';
+import Navbar from './components/Navbar';
 export default {
   name: 'app',
   components: {
-    // Workcation,
+    Workcation,
     PropertyCard,
+    Navbar,
   },
     data: () => ({
     property: {
