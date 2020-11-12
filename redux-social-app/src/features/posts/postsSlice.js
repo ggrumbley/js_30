@@ -12,12 +12,13 @@ const postsSlice = createSlice({
     postAdded: {
       // Can turn reducer into a named object with reducer
       // and a prepare method that runs before the reducer
-      prepare(title, content) {
+      prepare(title, content, userId) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
+            user: userId,
           },
         };
       },
