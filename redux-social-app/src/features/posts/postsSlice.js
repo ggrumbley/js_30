@@ -1,8 +1,28 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { sub } from 'date-fns';
 
 const initialState = [
-  { id: '1', title: 'First Post!', content: 'Hello!' },
-  { id: '2', title: 'Second Post!', content: 'More witty text' },
+  {
+    id: '0',
+    title: 'First Post!',
+    user: '2',
+    content: 'Hello!',
+    date: sub(new Date(), { minutes: 10 }).toISOString(),
+  },
+  {
+    id: '1',
+    title: 'Second Post!',
+    user: '5',
+    content: 'More witty text',
+    date: sub(new Date(), { minutes: 5 }).toISOString(),
+  },
+  {
+    id: '2',
+    title: 'Social media is tearing us apart.',
+    user: '1',
+    content: 'More witty text forecasting the impeding implosion of our most cherished democracy.',
+    date: sub(new Date(), { minutes: 67 }).toISOString(),
+  },
 ];
 
 const postsSlice = createSlice({
@@ -16,6 +36,7 @@ const postsSlice = createSlice({
         return {
           payload: {
             id: nanoid(),
+            date: new Date().toISOString(),
             title,
             content,
             user: userId,
