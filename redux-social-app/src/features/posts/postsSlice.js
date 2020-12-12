@@ -1,6 +1,15 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit';
 import { sub } from 'date-fns';
 
+const reactions = {
+  thumbsUp: 0,
+  hooray: 0,
+  heart: 0,
+  rocket: 0,
+  eyes: 0,
+  poop: 0,
+};
+
 const initialState = [
   {
     id: '0',
@@ -8,6 +17,7 @@ const initialState = [
     user: '2',
     content: 'Hello!',
     date: sub(new Date(), { minutes: 10 }).toISOString(),
+    reactions,
   },
   {
     id: '1',
@@ -15,6 +25,7 @@ const initialState = [
     user: '5',
     content: 'More witty text',
     date: sub(new Date(), { minutes: 5 }).toISOString(),
+    reactions,
   },
   {
     id: '2',
@@ -22,6 +33,7 @@ const initialState = [
     user: '1',
     content: 'More witty text forecasting the impeding implosion of our most cherished democracy.',
     date: sub(new Date(), { minutes: 67 }).toISOString(),
+    reactions,
   },
 ];
 
@@ -29,6 +41,13 @@ const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
+    reactionAdded(state, action) {
+      const { postId, reaction } = action.payload;
+      const existingPost = state.find((post) => post.id === postId);
+      if (existingPost) {
+        existingPost.reactions[reaction]++;
+      }
+    },
     postAdded: {
       // Can turn reducer into a named object with reducer
       // and a prepare method that runs before the reducer
@@ -40,6 +59,7 @@ const postsSlice = createSlice({
             title,
             content,
             user: userId,
+            reactions,
           },
         };
       },
@@ -59,6 +79,6 @@ const postsSlice = createSlice({
   },
 });
 
-export const { postAdded, postUpdated } = postsSlice.actions;
+export const { postAdded, postUpdated, reactionAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;

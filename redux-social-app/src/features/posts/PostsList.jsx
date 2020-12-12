@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { ReactionButtons } from './ReactionButtons';
 import { PostAuthor, TimeAgo } from '.';
 
 export const PostsList = () => {
@@ -15,6 +17,7 @@ export const PostsList = () => {
         <TimeAgo timestamp={post.date} />
       </div>
       <p className="post-content">{post.content.substring(0, 100)}</p>
+      <ReactionButtons post={post} />
       <Link to={`/posts/${post.id}`} className="button muted-button">
         View Post
       </Link>
