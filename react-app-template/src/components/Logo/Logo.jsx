@@ -51,8 +51,8 @@ const StyledLogo = styled.div`
 
 const Logo = () => (
   <StyledLogo>
-    <h1>Gary</h1>
-    <h2>Grumbley</h2>
+    <h1>1984</h1>
+    <h2>Outrun</h2>
     <Triangle />
   </StyledLogo>
 );
