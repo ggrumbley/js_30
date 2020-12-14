@@ -6,4 +6,4 @@ export default {
   component: App,
 };
 
-export const garyLogo = () => <App />;
+export const newWaveLogo = () => <App />;
