@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 
 // Components
 import App from '.';
+import { StoreProvider } from '../../store';
 
 describe('App Test Suite', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
+    ReactDOM.render(
+      <StoreProvider>
+        <App />
+      </StoreProvider>,
+      div,
+    );
     ReactDOM.unmountComponentAtNode(div);
   });
 });
