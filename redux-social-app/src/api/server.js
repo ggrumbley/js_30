@@ -182,6 +182,7 @@ new Server({
           heart: 0,
           rocket: 0,
           eyes: 0,
+          poop: 0,
         }
       },
       afterCreate(post, server) {

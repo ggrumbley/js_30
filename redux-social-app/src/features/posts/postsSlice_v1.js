@@ -1,18 +1,41 @@
-import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit';
-import { client } from '../../api/client';
+import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { sub } from 'date-fns';
 
-
-const initialState = {
-  posts: [],
-  status: 'idle',
-  error: null,
+const reactions = {
+  thumbsUp: 0,
+  hooray: 0,
+  heart: 0,
+  rocket: 0,
+  eyes: 0,
+  poop: 0,
 };
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await client.get('/fakeApi/posts');
-
-  return response.posts;
-})
+const initialState = [
+  {
+    id: '0',
+    title: 'First Post!',
+    user: '2',
+    content: 'Hello!',
+    date: sub(new Date(), { minutes: 10 }).toISOString(),
+    reactions,
+  },
+  {
+    id: '1',
+    title: 'Second Post!',
+    user: '5',
+    content: 'More witty text',
+    date: sub(new Date(), { minutes: 5 }).toISOString(),
+    reactions,
+  },
+  {
+    id: '2',
+    title: 'Social media is tearing us apart.',
+    user: '1',
+    content: 'More witty text forecasting the impeding implosion of our most cherished democracy.',
+    date: sub(new Date(), { minutes: 67 }).toISOString(),
+    reactions,
+  },
+];
 
 const postsSlice = createSlice({
   name: 'posts',
@@ -20,7 +43,7 @@ const postsSlice = createSlice({
   reducers: {
     reactionAdded(state, action) {
       const { postId, reaction } = action.payload;
-      const existingPost = state.posts.find((post) => post.id === postId);
+      const existingPost = state.find((post) => post.id === postId);
       if (existingPost) {
         existingPost.reactions[reaction]++;
       }
@@ -36,17 +59,17 @@ const postsSlice = createSlice({
             title,
             content,
             user: userId,
-            // reactions,
+            reactions,
           },
         };
       },
       reducer(state, action) {
-        state.posts.push(action.payload);
+        state.push(action.payload);
       },
     },
     postUpdated(state, action) {
       const { id, title, content } = action.payload;
-      const existingPost = state.posts.find((post) => post.id === id);
+      const existingPost = state.find((post) => post.id === id);
 
       if (existingPost) {
         existingPost.title = title;
@@ -59,7 +82,3 @@ const postsSlice = createSlice({
 export const { postAdded, postUpdated, reactionAdded } = postsSlice.actions;
 
 export default postsSlice.reducer;
-
-export const selectAllPosts = state => state.posts.posts;
-
-export const selectPostById = (state, postId) => state.posts.posts.find(post => post.id === postId);

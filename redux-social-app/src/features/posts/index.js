@@ -3,6 +3,7 @@ export { EditPostForm } from './EditPostForm';
 export { PostsList } from './PostsList';
 export { SinglePostPage } from './SinglePostPage';
 export { PostAuthor } from './PostAuthor';
+export { ReactionButtons } from './ReactionButtons';
 export { TimeAgo } from './TimeAgo';
 
-export { default as postsReducer, postAdded, postUpdated } from './postsSlice';
+export { default as postsReducer, postAdded, postUpdated, selectAllPosts, selectPostById } from './postsSlice';
