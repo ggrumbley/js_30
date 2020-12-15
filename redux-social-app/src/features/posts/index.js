@@ -6,4 +6,11 @@ export { PostAuthor } from './PostAuthor';
 export { ReactionButtons } from './ReactionButtons';
 export { TimeAgo } from './TimeAgo';
 
-export { default as postsReducer, postAdded, postUpdated, selectAllPosts, selectPostById } from './postsSlice';
+export {
+  fetchPosts,
+  default as postsReducer,
+  postAdded,
+  postUpdated,
+  selectAllPosts,
+  selectPostById,
+} from './postsSlice';
