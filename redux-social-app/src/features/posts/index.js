@@ -7,6 +7,7 @@ export { ReactionButtons } from './ReactionButtons';
 export { TimeAgo } from './TimeAgo';
 
 export {
+  addNewPost,
   fetchPosts,
   default as postsReducer,
   postAdded,
