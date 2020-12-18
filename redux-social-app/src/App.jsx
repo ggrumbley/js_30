@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { useDispatch } from 'react-redux';
 import { Navbar } from './app/Navbar';
 import { PostsList, EditPostForm, AddPostForm, SinglePostPage } from './features/posts';
-import { fetchUsers } from './features/users';
+import { fetchUsers, UsersList, UserPage } from './features/users';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +26,8 @@ function App() {
           />
           <Route exact path="/posts/:postId" component={SinglePostPage} />
           <Route exact path="/editPost/:postId" component={EditPostForm} />
+          <Route exact path="/users" component={UsersList} />
+          <Route exact path="/users/:userId" component={UserPage} />
           <Redirect to="/" />
         </Switch>
       </div>
