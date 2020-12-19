@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Navbar } from './app/Navbar';
 import { PostsList, EditPostForm, AddPostForm, SinglePostPage } from './features/posts';
 import { fetchUsers, UsersList, UserPage } from './features/users';
+import { NotificationsList } from './features/notifications';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/editPost/:postId" component={EditPostForm} />
           <Route exact path="/users" component={UsersList} />
           <Route exact path="/users/:userId" component={UserPage} />
+          <Route exact path="/notifications" component={NotificationsList} />
           <Redirect to="/" />
         </Switch>
       </div>
