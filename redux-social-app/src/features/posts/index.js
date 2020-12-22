@@ -14,4 +14,6 @@ export {
   postUpdated,
   selectAllPosts,
   selectPostById,
+  selectPostIds,
+  selectPostsByUser,
 } from './postsSlice';
