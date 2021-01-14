@@ -1,9 +1,9 @@
 import React from 'react';
 
+import { Board } from './features/knight';
+
 const App = () => {
-  return (
-    <div>POOp</div>
-  )
-}
+  return <Board knightPosition={[0, 0]} />;
+};
 
 export default App;
