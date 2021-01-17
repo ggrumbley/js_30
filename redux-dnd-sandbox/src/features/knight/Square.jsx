@@ -6,8 +6,8 @@ export const Square = ({ children, isBlack }) => {
   const style = {
     color: stroke,
     backgroundColor: fill,
-    width: '100%',
-    height: '100%',
+    width: '12.5%',
+    height: '12.5%',
   };
   return <div style={style}>{children}</div>;
 };
