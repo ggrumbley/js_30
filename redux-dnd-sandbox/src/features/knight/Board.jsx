@@ -2,30 +2,34 @@ import React from 'react';
 import { Knight, Square } from '.';
 
 const boardStyle = {
-  width: '100%',
-  height: '100%',
+  width: 650,
+  height: 650,
   display: 'flex',
   flexWrap: 'wrap',
+  border: '1px solid gray',
 };
 /** Styling properties applied to each square element */
 const squareStyle = { width: '12.5%', height: '12.5%' };
 
-
-
-export const Board = ({ knightPosition }) => {
-  const renderSquare = (x, y, [knightX, knightY]) => {
-    const isBlack = (x + y) % 2 === 1;
-    const isKnightHere = knightX === x && knightY === y;
-    const piece = isKnightHere ? <Knight /> : null;
-
-    return <Square isBlack={isBlack}>{piece}</Square>;
-  };
+const renderSquare = (i, [knightX, knightY]) => {
+  const x = i % 8;
+  const y = Math.floor(i / 8);
+  const isKnightHere = knightX === x && knightY === y;
+  const isBlack = (x + y) % 2 === 1;
+  const piece = isKnightHere ? <Knight /> : null;
 
   return (
-  <div style={boardStyle}>
-    {renderSquare(0, 0, knightPosition)}
-    {renderSquare(1, 0, knightPosition)}
-    {renderSquare(2, 0, knightPosition)}
-  </div>
-);
+    <div key={i} style={squareStyle}>
+      <Square isBlack={isBlack}>{piece}</Square>
+    </div>
+  );
+};
+
+export const Board = ({ knightPosition }) => {
+  const squares = [];
+  for (let i = 0; i < 64; i++) {
+    squares.push(renderSquare(i, knightPosition));
+  }
+
+  return <div style={boardStyle}>{squares}</div>;
 };

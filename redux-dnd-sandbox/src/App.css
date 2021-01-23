@@ -1,0 +1,13 @@
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto;
+  max-width: 650px;
+}
+
+.board-container {
+  width: 100%;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+}

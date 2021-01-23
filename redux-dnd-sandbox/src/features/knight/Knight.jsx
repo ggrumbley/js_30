@@ -1,3 +1,9 @@
-import React from "react";
+import React from 'react';
 
-export const Knight = () => <span>♘</span>;
+const knightStyle = {
+  fontSize: 80,
+  fontWeight: 'bold',
+  cursor: 'grab',
+};
+
+export const Knight = () => <span style={knightStyle}>♘</span>;

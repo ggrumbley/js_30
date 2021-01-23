@@ -1,13 +1,17 @@
 import React from 'react';
 
 export const Square = ({ children, isBlack }) => {
-  const fill = isBlack ? 'black' : 'white';
-  const stroke = isBlack ? 'white' : 'black';
+  const backgroundColor = isBlack ? 'black' : 'white';
+  const color = isBlack ? 'white' : 'black';
   const style = {
-    color: stroke,
-    backgroundColor: fill,
-    width: '12.5%',
-    height: '12.5%',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignContent: 'center',
+    color,
+    backgroundColor,
   };
+
   return <div style={style}>{children}</div>;
 };
