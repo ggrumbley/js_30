@@ -1,5 +1,4 @@
 export { Knight } from './Knight';
-export { Square } from './Square';
 export { BoardSquare } from './BoardSquare';
 export { Board } from './Board';
 export {

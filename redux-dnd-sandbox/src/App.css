@@ -1,3 +1,9 @@
+.knight {
+  font-size: 80px;
+  font-weight: bold;
+  cursor: grab;
+}
+
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -23,6 +29,14 @@
 .square-container {
   width: 12.5%;
   height: 12.5%;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .board-square {
