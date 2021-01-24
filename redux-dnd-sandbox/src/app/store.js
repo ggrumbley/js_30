@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
-import knightReducer from '../features/knight/knightSlice';
+import { knightReducer } from '../features/knight';
 
 export default configureStore({
   reducer: {

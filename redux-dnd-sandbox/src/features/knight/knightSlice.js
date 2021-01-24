@@ -1,9 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const canMoveKnight = (newPosition, knightPosition) => {
+  const [x, y] = knightPosition;
+  const [toX, toY] = newPosition;
+  const dx = toX - x;
+  const dy = toY - y;
+
+  return (Math.abs(dx) === 2 && Math.abs(dy) === 1) || (Math.abs(dx) === 1 && Math.abs(dy) === 2);
+};
+
 export const knightSlice = createSlice({
   name: 'knight',
   initialState: {
-    knightPosition: [0, 0],
+    knightPosition: [1, 7],
   },
   reducers: {
     moveRight: (state) => {
@@ -22,10 +31,15 @@ export const knightSlice = createSlice({
       if (state.knightPosition[1] === 0) return;
       state.knightPosition[1] -= 1;
     },
+    moveKnight: (state, action) => {
+      if (canMoveKnight(action.payload, state.knightPosition)) {
+        state.knightPosition = action.payload;
+      }
+    },
   },
 });
 
-export const { moveRight, moveLeft, moveDown, moveUp } = knightSlice.actions;
+export const { moveRight, moveLeft, moveDown, moveUp, moveKnight } = knightSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
