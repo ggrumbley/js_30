@@ -9,7 +9,7 @@ const knightStyle = {
 };
 
 export const Knight = () => {
-  const [{ isDragging }, drag] = useDrag({
+  const [{ isDragging }, drag, preview] = useDrag({
     item: { type: KNIGHT },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),

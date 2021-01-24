@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const canMoveKnight = (newPosition, knightPosition) => {
+export const canMoveKnight = (newPosition, knightPosition) => {
   const [x, y] = knightPosition;
   const [toX, toY] = newPosition;
   const dx = toX - x;
