@@ -1,6 +1,7 @@
 export { Knight } from './Knight';
 export { BoardSquare } from './BoardSquare';
 export { Board } from './Board';
+export { ChessBoard } from './ChessBoard';
 export {
   default as knightReducer,
   canMoveKnight,

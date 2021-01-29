@@ -9,6 +9,7 @@ export const Knight = () => {
       isDragging: !!monitor.isDragging(),
     }),
   });
+
   return (
     <div ref={drag} className="knight" style={{ opacity: isDragging ? 0.5 : 1 }}>
       ♘

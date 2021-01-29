@@ -1,0 +1,56 @@
+.knight {
+  font-size: 80px;
+  font-weight: bold;
+  cursor: grab;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px auto;
+  max-width: 650px;
+}
+
+.board-container {
+  width: 100%;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  width: 650px;
+  height: 650px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid gray;
+}
+
+.square-container {
+  width: 12.5%;
+  height: 12.5%;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.board-square {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.6;
+}
