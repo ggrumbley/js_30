@@ -1,23 +1,41 @@
 .inventory-app-container {
   display: grid;
-  grid-template-columns: minmax(375px, 1200px);
-  grid-template-rows: 1fr minmax(60px, 200px);
-  gap: 2em;
+  grid-template-columns: 600px 600px;
+  grid-template-rows: 400px 205px;
+  gap: 3vh 1vw;
   justify-content: center;
   background-color: #fff;
-  padding-top: 2em;
+  padding-top: 3vh;
   grid-template-areas:
-    'GameScreen'
-    'Inventory';
+    'GameScreen GameScreen'
+    'PlayerActions Inventory';
 }
 
 .game-screen {
   grid-area: GameScreen;
   background-color: aqua;
-  min-height: 300px;
 }
 
 .inventory {
   grid-area: Inventory;
   background-color: limegreen;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: auto;
+}
+
+.inventory-slot {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  background-color: lightcoral;
+  font-size: 150%;
+  border: lightseagreen 1px solid;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-actions {
+  grid-area: PlayerActions;
+  background-color: lightsalmon;
 }
