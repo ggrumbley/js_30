@@ -1,9 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+const testItems = [
+  {
+    id: 1,
+    name: 'Bowie Knife',
+    icon: 'bowie-knife',
+    url: 'https://game-icons.net/icons/ffffff/000000/1x1/lorc/bowie-knife.svg',
+  },
+  {
+    id: 2,
+    name: 'Ray Gun',
+    icon: 'ray-gun',
+    url: 'https://game-icons.net/icons/ffffff/000000/1x1/lorc/ray-gun.svg',
+  },
+];
 export const inventorySlice = createSlice({
   name: 'inventory',
   initialState: {
-    inventory: [],
+    inventory: [...testItems],
   },
   reducers: {
     addItem: (state, action) => {
