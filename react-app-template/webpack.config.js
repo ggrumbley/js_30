@@ -4,9 +4,22 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
+const packageJSON = require('./package.json');
+
+const proxy = packageJSON.proxy
+  ? {
+      '/api': {
+        target: packageJSON.proxy,
+        changeOrigin: true,
+        pathRewrite: {
+          [`^/api`]: '',
+        },
+      },
+    }
+  : {};
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/index.jsx'],
   mode: 'production',
   module: {
     rules: [
@@ -45,5 +58,6 @@ module.exports = {
     hot: true,
     port: 8080,
     quiet: true,
+    proxy,
   },
 };
