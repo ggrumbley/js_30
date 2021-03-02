@@ -1,13 +1,25 @@
 import React from 'react';
 
-import './Face.css';
+import { BackgroundCircle } from './BackgroundCircle';
+import { Eyes } from './Eyes';
+import { Mouth } from './Mouth';
+import { FaceContainer } from './FaceContainer';
 
-export const Face = () => {
-  return (
-    <svg width="960" height="500">
-      <circle cx="480" cy="250" r="200" fill="yellow" stroke="black" stroke-width="10"></circle>
-      <circle cx="390" cy="180" r="50"></circle>
-      <circle cx="570" cy="180" r="50"></circle>
-    </svg>
-  );
-};
+export const Face = ({
+  width,
+  height,
+  centerX,
+  centerY,
+  strokeWidth,
+  eyeOffsetX,
+  eyeOffsetY,
+  eyeRadius,
+  mouthRadius,
+  mouthWidth,
+}) => (
+  <FaceContainer width={width} height={height} centerX={centerX} centerY={centerY}>
+    <BackgroundCircle radius={centerY - strokeWidth / 2} strokeWidth={strokeWidth} />
+    <Eyes eyeOffsetX={eyeOffsetX} eyeOffsetY={eyeOffsetY} eyeRadius={eyeRadius} />
+    <Mouth mouthRadius={mouthRadius} mouthWidth={mouthWidth} />
+  </FaceContainer>
+);

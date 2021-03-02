@@ -4,6 +4,6 @@ import logo from './logo.png';
 export default create({
   base: 'dark',
   brandTitle: 'Retro App Template',
-  appContentBg: '#fff',
+  appContentBg: 'white',
   brandImage: logo,
 });
