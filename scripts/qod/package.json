@@ -1,0 +1,11 @@
+{
+  "name": "qod",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0"
+  }
+}
