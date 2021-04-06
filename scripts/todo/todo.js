@@ -44,15 +44,61 @@ const prompt = (question) => {
 const newTodo = () => {
   const q = chalk.blue('Type in your todo\n');
   prompt(q).then((todo) => {
-    console.log(todo);
+    db.get('todos')
+      .push({
+        title: todo,
+        complete: false,
+      })
+      .write();
   });
+};
+
+const getTodos = () => {
+  const todos = db.get('todos').value();
+  let index = 1;
+  todos.forEach((todo) => {
+    let todoText = chalk.green(`${index++}. ${todo.title}`);
+    if (todo.complete) {
+      todoText += ' ✅  ';
+      todoText = chalk.strikethrough(todoText);
+    }
+    console.log(todoText);
+  });
+};
+
+const completeTodo = () => {
+  // check that length
+  if (args.length !== 4) {
+    errorLog('invalid number of arguments passed for complete command');
+
+    return;
+  }
+
+  let n = Number(args[3]);
+  // check if the value is a number
+  if (isNaN(n)) {
+    errorLog('please provide a valid number for complete command');
+
+    return;
+  }
+
+  // check if correct length of values has been passed
+  let todosLength = db.get('todos').value().length;
+  if (n > todosLength) {
+    errorLog('invalid number passed for complete command.');
+
+    return;
+  }
+
+  // update the todo item marked as complete
+  db.set(`todos[${n - 1}].complete`, true).write();
 };
 
 const errorLog = (err) => {
   console.log(chalk.red(err));
 };
 
-if (args.length > 3) {
+if (args.length > 3 && args[2] !== 'complete') {
   errorLog(`Only one argument can be accepted; actual: ${args.length}`);
   console.log(usageText);
 }
@@ -65,8 +111,10 @@ switch (args[2]) {
     newTodo();
     break;
   case 'get':
+    getTodos();
     break;
   case 'complete':
+    completeTodo();
     break;
   default:
     errorLog('invalid command passed');
