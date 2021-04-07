@@ -11,7 +11,7 @@ export default {
 const width = 160;
 const height = 160;
 const faceArray = range(6 * 3);
-
+//  Face goes here
 export const smileyFace = () => (
   <Face
     width={width}
