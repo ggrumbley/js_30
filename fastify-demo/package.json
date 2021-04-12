@@ -1,0 +1,15 @@
+{
+  "name": "fastify-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "fastify start src/server.js"
+  },
+  "dependencies": {
+    "fastify": "^3.14.2",
+    "fastify-cli": "^2.9.1",
+    "fastify-mongodb": "^2.0.1",
+    "fastify-plugin": "^3.0.0"
+  }
+}
