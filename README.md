@@ -1,6 +1,6 @@
 # Javascript Lab
 
-☕⚗🔬 A laboratory for small Javascript experiments ☕⚗🔬
+☕⚗🔬 A laboratory for small JS/TS experiments ☕⚗🔬
 
 ---
 + [JS 30 Exercises](./js_30)
