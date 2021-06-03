@@ -10,7 +10,6 @@ export const AuthGuard: React.FC = ({ children }) => {
       {user ? (
         children
       ) : (
-        // <div className="w-full h-full flex justify-center items-center p-4">
         <Card>
           <Space direction="vertical" size={8}>
             <img src="https://app.supabase.io/img/supabase-dark.svg" width="96" />
@@ -23,8 +22,6 @@ export const AuthGuard: React.FC = ({ children }) => {
             />
           </Space>
         </Card>
-
-        // </div>
       )}
     </>
   );
