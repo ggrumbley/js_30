@@ -1,10 +1,10 @@
 import React from 'react';
-
+import { Answer } from './types';
 type Props = {
   question: string;
   answers: string[];
   callback: any;
-  userAnswer: string;
+  userAnswer: Answer | undefined;
   questionNum: number;
   totalQuestions: number;
 };

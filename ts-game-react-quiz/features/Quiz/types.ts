@@ -1,3 +1,10 @@
+export type Answer = {
+  question: string;
+  answer: string;
+  correct: boolean;
+  correctAnswer: string;
+};
+
 export type Question = {
   category: string;
   correct_answer: string;

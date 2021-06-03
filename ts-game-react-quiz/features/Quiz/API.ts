@@ -5,7 +5,7 @@ export const fetchQuizQuestions = async (
   amount: number,
   difficulty: Difficulty,
 ): Promise<QuestionsState[]> => {
-  const QUIZ_API_URL = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
+  const QUIZ_API_URL = `/opentdb/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`;
 
   const data = await $fetch.get(QUIZ_API_URL);
 
