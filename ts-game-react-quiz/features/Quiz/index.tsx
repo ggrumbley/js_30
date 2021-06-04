@@ -1,7 +1,6 @@
 import React from 'react';
 import { QuestionCard } from './components/QuestionCard';
 import { Spinner } from './components/Spinner';
-import { Difficulty } from './types';
 import { useStore } from '../../store';
 
 export const TOTAL_QUESTIONS = 10;
@@ -14,21 +13,12 @@ export const Quiz: React.FC = () => {
     questionNumber,
     loading,
     userAnswers,
-    toggleLoading,
-    fetchQuestions,
     setQuestionNumber,
     setUserAnswers,
-    resetQuiz,
+    startTrivia,
     incrementScore,
     setGameOver,
   } = useStore();
-
-  const startTrivia = async () => {
-    toggleLoading();
-    resetQuiz();
-    fetchQuestions(TOTAL_QUESTIONS, Difficulty.EASY);
-    toggleLoading();
-  };
 
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (gameOver) return;
@@ -38,8 +28,8 @@ export const Quiz: React.FC = () => {
     const correctAnswer = questions[questionNumber].correct_answer;
     const correct = questions[questionNumber].correct_answer === answer;
 
-    if (correct) incrementScore;
-
+    if (correct) incrementScore();
+    console.log(score);
     const userAnswer = {
       question,
       answer,

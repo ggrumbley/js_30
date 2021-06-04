@@ -26,7 +26,7 @@ interface QuizStoreState {
   fetchQuestions: (totalQuestions: number, difficulty: Difficulty) => void;
   setQuestionNumber: (num: number) => void;
   setUserAnswers: (answer: Answer) => void;
-  resetQuiz: () => void;
+  startTrivia: () => void;
   incrementScore: () => void;
   setGameOver: (bool: boolean) => void;
 }
@@ -64,13 +64,16 @@ export const initializeStore = (preloadedState = {}) => {
     setUserAnswers: (answer) => {
       set({ userAnswers: [...get().userAnswers, answer] });
     },
-    resetQuiz: () => {
+    startTrivia: () => {
+      get().toggleLoading();
       set({
         userAnswers: [],
         gameOver: false,
         score: 0,
         questionNumber: 0,
       });
+      get().fetchQuestions(10, Difficulty.EASY);
+      get().toggleLoading();
     },
     setGameOver: (bool) => {
       set({ gameOver: bool });
