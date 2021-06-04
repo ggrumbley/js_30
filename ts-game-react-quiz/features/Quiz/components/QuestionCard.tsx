@@ -36,7 +36,7 @@ export const QuestionCard: React.FC<Props> = ({
       </p>
       <p className="text-base" dangerouslySetInnerHTML={{ __html: question }} />
       <div>
-        {answers.map((answer) => (
+        {answers?.map((answer) => (
           <div className="button-wrapper" key={answer}>
             <button
               className={`answer-button ${selectBackgroundClass(userAnswer, answer)}`}
