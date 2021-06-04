@@ -3,6 +3,7 @@ import { QuestionCard } from './components/QuestionCard';
 import { Spinner } from './components/Spinner';
 import { fetchQuizQuestions } from './API';
 import { Answer, Difficulty, QuestionsState } from './types';
+import { useStore } from '../../store';
 
 export const TOTAL_QUESTIONS = 10;
 
@@ -14,6 +15,8 @@ export const Quiz: React.FC = () => {
   const [userAnswers, setUserAnswers] = useState<Answer[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
+  const bears = useStore((state) => state.bears);
+  const increasePopulation = useStore((state) => state.increasePopulation);
 
   const startTrivia = async () => {
     setLoading(true);
@@ -63,6 +66,8 @@ export const Quiz: React.FC = () => {
   return (
     <div className="flex flex-col items-center">
       <h1>React Quiz</h1>
+      <h1>{bears} around here ...</h1>
+      <button onClick={increasePopulation}>BEARS!</button>
       {(gameOver || userAnswers.length === TOTAL_QUESTIONS) && (
         <button className="start max-w-xs" onClick={startTrivia}>
           Start
