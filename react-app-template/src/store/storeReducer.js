@@ -1,5 +1,9 @@
 import * as C from '../constants';
 
+export const initialState = {
+  value: 1984,
+};
+
 const increment = (state) => {
   const newState = { ...state };
   newState.value += 1;
@@ -15,7 +19,7 @@ const decrement = (state) => {
   return Object.freeze(newState);
 };
 
-const storeReducer = (state, action) => {
+export const storeReducer = (state, action) => {
   switch (action.type) {
     case C.INCREMENT:
       return increment(state);
@@ -25,5 +29,3 @@ const storeReducer = (state, action) => {
       return state;
   }
 };
-
-export default storeReducer;

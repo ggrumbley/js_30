@@ -1,15 +1,13 @@
-import React, { createContext, useReducer, useMemo } from 'react';
+import React, { createContext, useReducer, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { INITIAL_STATE } from '../constants';
+import { storeReducer, initialState } from './storeReducer';
 
-import storeReducer from './storeReducer';
+const StoreContext = createContext();
 
-const StoreContext = createContext(null);
-
-const StoreProvider = ({ children }) => {
+export const StoreProvider = ({ children }) => {
   // Get state and dispatch from Reacts new API useReducer.
-  const [state, dispatch] = useReducer(storeReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(storeReducer, initialState);
 
   const storeValue = useMemo(() => {
     // Debug Logging
@@ -23,8 +21,8 @@ const StoreProvider = ({ children }) => {
   return <StoreContext.Provider value={storeValue}>{children}</StoreContext.Provider>;
 };
 
+export const useStore = () => useContext(StoreContext);
+
 StoreProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export { StoreContext, StoreProvider };

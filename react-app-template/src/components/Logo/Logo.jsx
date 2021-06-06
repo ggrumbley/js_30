@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Triangle from './Triangle';
-import { StoreContext } from '../../store';
+import { useStore } from '../../store';
 import * as C from '../../constants';
 
 const StyledLogo = styled.div`
@@ -78,7 +78,7 @@ const ButtonContainer = styled.span`
 `;
 
 const Logo = () => {
-  const { state, dispatch } = useContext(StoreContext);
+  const { state, dispatch } = useStore();
   return (
     <StyledLogo>
       <h1>{state.value}</h1>
