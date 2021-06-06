@@ -21,6 +21,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'no-plusplus': 0,
     'no-param-reassign': 0,
+    'no-void': 0,
     indent: 0,
     'max-len': [
       'warn',

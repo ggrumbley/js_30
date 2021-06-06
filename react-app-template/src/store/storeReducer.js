@@ -8,12 +8,10 @@ export const INITIAL_STATE = {
 export const storeReducer = produce((draft, action) => {
   switch (action.type) {
     case C.INCREMENT:
-      draft.value++;
-      break;
+      return void draft.value++;
     case C.DECREMENT:
-      draft.value--;
-      break;
+      return void draft.value--;
     default:
-      break;
+      return void draft;
   }
 }, INITIAL_STATE);
