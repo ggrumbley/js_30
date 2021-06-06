@@ -1,13 +1,13 @@
 import React, { createContext, useReducer, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { storeReducer, initialState } from './storeReducer';
+import { storeReducer, INITIAL_STATE } from './storeReducer';
 
 const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
   // Get state and dispatch from Reacts new API useReducer.
-  const [state, dispatch] = useReducer(storeReducer, initialState);
+  const [state, dispatch] = useReducer(storeReducer, INITIAL_STATE);
 
   const storeValue = useMemo(() => {
     // Debug Logging

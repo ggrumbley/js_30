@@ -1,31 +1,19 @@
+import produce from 'immer';
 import * as C from '../constants';
 
-export const initialState = {
+export const INITIAL_STATE = {
   value: 1984,
 };
 
-const increment = (state) => {
-  const newState = { ...state };
-  newState.value += 1;
-  return Object.freeze(newState);
-};
-
-const decrement = (state) => {
-  if (state.value === 0) return state;
-
-  const newState = { ...state };
-  newState.value -= 1;
-
-  return Object.freeze(newState);
-};
-
-export const storeReducer = (state, action) => {
+export const storeReducer = produce((draft, action) => {
   switch (action.type) {
     case C.INCREMENT:
-      return increment(state);
+      draft.value++;
+      break;
     case C.DECREMENT:
-      return decrement(state);
+      draft.value--;
+      break;
     default:
-      return state;
+      break;
   }
-};
+}, INITIAL_STATE);
