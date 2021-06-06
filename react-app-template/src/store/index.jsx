@@ -1,8 +1,31 @@
 import React, { createContext, useReducer, useContext, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import produce from 'immer';
 
-import { storeReducer, INITIAL_STATE } from './storeReducer';
+import * as C from '../constants';
 
+export const INITIAL_STATE = {
+  value: 1984,
+};
+
+export const storeReducer = produce((draft, action) => {
+  switch (action.type) {
+    case C.INCREMENT:
+      draft.value += 1;
+      break;
+    case C.DECREMENT:
+      draft.value -= 1;
+      break;
+    default:
+      throw new Error('An invalid action type has been passed');
+  }
+}, INITIAL_STATE);
+
+/*
+  Setup Store Provider
+  Setup useStore Context
+  Export Both
+*/
 const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {

@@ -89,7 +89,7 @@ const Logo = () => {
         <button type="button" onClick={() => dispatch({ type: C.DECREMENT })}>
           <h3>The Past</h3>
         </button>
-        <button type="button" onClick={() => dispatch({ type: C.INCREMENT })}>
+        <button type="button" onClick={() => dispatch({ type: '💩' })}>
           <h3>The Future</h3>
         </button>
       </ButtonContainer>

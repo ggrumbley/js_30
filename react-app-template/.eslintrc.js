@@ -19,9 +19,7 @@ module.exports = {
     'react/forbid-prop-types': 0,
     'react/require-default-props': 0,
     'react/jsx-props-no-spreading': 0,
-    'no-plusplus': 0,
-    'no-param-reassign': 0,
-    'no-void': 0,
+    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['draft'] }],
     indent: 0,
     'max-len': [
       'warn',
