@@ -17,7 +17,7 @@ export const storeReducer = produce((draft, action) => {
       draft.value -= 1;
       break;
     default:
-      throw new Error('An invalid action type has been passed');
+      throw new Error(`Unknown action: ${action.type}`);
   }
 }, INITIAL_STATE);
 
